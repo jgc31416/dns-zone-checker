@@ -1,0 +1,88 @@
+[tool]
+[tool.poetry]
+name = "dns_zone_checker"
+version = "0.1.0"
+homepage = "https://github.com/jgc31416/dns_zone_checker"
+description = "Small tool to check DNS zone files against DNS servers."
+authors = ["DNS file zone checker <jgc3.1416@gmail.com>"]
+readme = "README.md"
+license =  "GPL-3.0-only"
+classifiers=[
+    'Development Status :: 2 - Pre-Alpha',
+    'Intended Audience :: Developers',
+    'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
+    'Natural Language :: English',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+]
+packages = [
+    { include = "dns_zone_checker" },
+    { include = "tests", format = "sdist" },
+]
+
+[tool.poetry.dependencies]
+python = ">=3.8,<4.0"
+fire = "0.4.0"
+
+
+[tool.poetry.group.dev.dependencies]
+black  = { version = "^22.3.0"}
+isort  = { version = "5.10.1"}
+flake8  = { version = "4.0.1"}
+flake8-docstrings = { version = "^1.6.0" }
+tox  = { version = "^3.24.5"}
+twine  = { version = "^3.8.0"}
+pre-commit = {version = "^2.17.0"}
+toml = {version = "^0.10.2"}
+livereload = {version = "^2.6.3"}
+pyreadline = {version = "^2.1"}
+mypy = {version = "^1.5.1"}
+
+
+[tool.poetry.group.test.dependencies]
+pytest  = { version = "^7.0.1"}
+pytest-cov  = { version = "^3.0.0"}
+
+[tool.poetry.group.doc.dependencies]
+mkdocs  = { version = "^1.2.3"}
+mkdocs-include-markdown-plugin  = { version = "^3.2.3"}
+mkdocs-material  = { version = "^8.1.11"}
+mkdocstrings  = { version = "^0.18.0"}
+mkdocs-material-extensions  = { version = "^1.0.3"}
+mkdocs-autorefs = {version = "^0.3.1"}
+mike = { version="^1.1.2"}
+setuptools = {version="^68.0"}
+pkginfo = {version="^1.9"}
+virtualenv = {version="^20.0"}
+
+
+[tool.poetry.scripts]
+dns_zone_checker = 'dns_zone_checker.cli:main'
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | \.history
+)/
+'''
+[tool.isort]
+profile = "black"
