@@ -29,7 +29,7 @@ fire = "0.4.0"
 
 
 [tool.poetry.group.dev.dependencies]
-black  = { version = "^22.3.0"}
+black  = { version = "^24.3.0"}
 isort  = { version = "5.10.1"}
 flake8  = { version = "4.0.1"}
 flake8-docstrings = { version = "^1.6.0" }
